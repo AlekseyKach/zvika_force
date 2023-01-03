@@ -6,6 +6,7 @@ import { cartReducer} from './reducers/cartReducers'
 
 export const reducer = combineReducers({
     productDetails: productDetailsSReducer,
+
     productList  : productListsSReducer,
     cart :cartReducer,
 })
@@ -15,7 +16,7 @@ export const initialState= {}
 
 const middleware=[thunk]
 const store=configureStore({
-    reducer:reducer,
+     reducer:reducer,
     preloadedState: initialState,
     middleware: middleware,});
 

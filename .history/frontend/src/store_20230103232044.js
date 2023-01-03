@@ -6,6 +6,7 @@ import { cartReducer} from './reducers/cartReducers'
 
 export const reducer = combineReducers({
     productDetails: productDetailsSReducer,
+
     productList  : productListsSReducer,
     cart :cartReducer,
 })
