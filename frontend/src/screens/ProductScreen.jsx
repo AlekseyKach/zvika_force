@@ -9,11 +9,10 @@ import Loader from "../components/Loader";
 import{listProductsDetails} from '../actions/productsActions';
   
   const ProductScreen = () => {
-  const product_id =useParams();
+  const product_id =useParams()
   const navigate = useNavigate();
 
   const [qty, setQty]=useState(1)
-  const limit =10;
   const dispatch=useDispatch()
   const productDetails=useSelector(state => state.productDetails)
   const {loading , error,product} =productDetails
@@ -45,7 +44,7 @@ import{listProductsDetails} from '../actions/productsActions';
               :(
                 <Row>
                         <Col md={6}>
-                          <Image width={400} src={product.image} alt={product.name} fluid />
+                          <Image style={{ width: 450, height: 680 }} src={product.image} alt={product.name} fluid />
                         </Col>
                         <Col md={3}>
                           <ListGroup variant="flush">
@@ -90,6 +89,7 @@ import{listProductsDetails} from '../actions/productsActions';
 
                                           <Col>Status:</Col>
                                           <Col>
+                                          {/* in stok or not depents the "countInStock" */}
                                             {product.countInStock > 0 ? 'In Stock': 'Out of Stock'}
                                             </Col>
 
@@ -107,7 +107,7 @@ import{listProductsDetails} from '../actions/productsActions';
                                           >
                                             {/* qty depents th stock */}
                                             { 
-                                              [...Array(10 ).keys()].map((x)=>(
+                                              [...Array(product.countInStock).keys()].map((x)=>(
                                                 <option key={x+1} value={x+1}>
                                                   {x +1 }
                                                 </option>
